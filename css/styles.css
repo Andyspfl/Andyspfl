@@ -1,0 +1,284 @@
+/*Paleta de colores*/
+:root{
+    --blanco:#FFFFFF;
+    --oscuro:#212121;
+    --primario:#CEC09F;
+    --secundario:#C11937;
+    --gris:#757575;
+}
+/*-------------------Globales-------------------*/
+html{
+    font-size: 62.5%;
+    box-sizing: border-box; /*Hack para box model*/
+    scroll-snap-type:y mandatory;
+
+}
+/*Este tambien es parte del hack para el box model*/
+*, *:before,*:after{
+    box-sizing: inherit;
+}
+/*Este estilo de fuente se saco de google fonts, se llama Krub 400 y 700, por si quieres usarlo despues*/
+body{
+    font-family: 'Krub', sans-serif;
+    font-size: 16px; /*cada rem = 10px*/
+
+    /*esto sirve para hacer degradados hacia arriva empieza con el color ese, hasta el color blanco*/
+    background-image: linear-gradient(to top, #F7EBE6, var(--blanco)100%);
+}
+/*Este codigo css es para botones reutilizable*/
+.boton{
+    text-decoration: none;
+    color: var(--blanco);
+    background-color: var(--secundario);
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+
+
+.boton:hover{
+    cursor: pointer;
+}
+@media (min-width: 768px){
+    .boton{
+        width: auto;
+    }
+}
+/*-------------Utilidades-------------*/
+.w-sm-100{
+    width: 100%;
+}
+@media (min-width: 708px){
+    .w-sm-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+/*--------------Main--------------*/
+.sombra{
+    -webkit-box-shadow: 0px 5px 15px 0px rgba(148,145,148,1);
+    -moz-box-shadow: 0px 5px 15px 0px rgba(148,145,148,1);
+    box-shadow: 0px 5px 15px 0px rgba(148,145,148,1);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+/*-------------------Tipografia-------------------*/
+/*Una base para tus titulos o headings*/
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+h1,h2,h3{
+    text-align: center;
+}
+
+
+/*------------------Titulos------------------*/
+.titulo span
+{
+    font-size: 2rem;
+}
+
+
+/*--------------Barra de navegacion--------------*/
+/*Como maximo tomara 120rem pero si es mas bajo que eso solamente tratara de tomar el 100%*/
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+.nav-bg{
+    background-color: var(--secundario);
+}
+/*Flex sirve para manejar el eje de las cajitas, de izquierda a derecha o de arriba hacia abajo*/
+.navegacion-principal{
+    
+    display: flex;
+    flex-direction: column;
+}
+/*Las Media Queries son mas que todo para responsive, todo es ilimitado, tu eres el unico que lo controla*/
+/*Tamanio mas utilizado para responsive en Tablets*/
+@media (min-width: 768px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+}
+
+/*----------------Tamanios mas utilizados para responsive----------------*/
+/*Tamanio mas utilizado para responsive ne celulares*/
+@media (min-width: 480px){
+    
+}
+/*Tamanio mas utilizado para responsive en Laptops*/
+@media (min-width: 1140px){
+    
+}
+/*Tamanio mas utilizado para responsive en Computadoras grandes*/
+@media (min-width: 1440px){
+    
+}
+.navegacion-principal a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: var(--blanco);
+    padding: 1rem;
+}
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    border-radius: 1rem;
+    color: var(--oscuro);
+}
+
+
+
+/**-------------------Hero o imagen de fondo con un poco de contenido con datos  y esas cosas-------------------*/
+/*El hero es para la imagen de fondo, normalmente se lo define en css, pero tambien puede ser definido en html, el backgraund-size: cover; es para ajustar la imagen al ancho de la pantalla*/
+.hero{
+    background-image: url(../imagenes/dr-stone.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 43rem;
+    position: relative;
+    margin-bottom: 2rem;
+
+}
+.contenido-hero{
+    
+    position: absolute;
+    background-color: rgba(0, 0, 0,.7); /*hay otra forma con rgb pero es mas moderna y tiene menos soporte, en todo caso esta en el video 39*/
+    width: 100%;
+    height: 100%;
+
+    /*esto permite aliniar siempre el contenido netamente en el centro*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido-hero h2,
+.contenido-hero p{
+    color: var(--blanco);
+}
+
+.ubicacion{
+    display: flex;
+    align-items: flex-end;
+}
+/*-------------Servicios-------------*/
+.servicios,
+.navegacion-principal,
+.formulario{
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+@media (min-width: 768px){
+    
+    .servicios{
+        display: grid;
+        /*Ojo con esto, reparte todas tus secciones en 3 columnas de tamanio 1fr que es igual a 33.3% de la pantalla, jaja*/
+        grid-template-columns: repeat(3,1fr);
+        /*Este es como un margen pero con grid. O sea... margin pero en grid*/
+        column-gap: 5rem;
+    }
+}
+/*-----------Servicio Iconos-----------*/
+.servicio h3{
+    color: var(--secundario);
+}
+.servicio p{
+    line-height: 2;
+}
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+/*---------------Contacto-formulario---------------*/
+.formulario{
+    background-color: var(--gris);
+    width: min(60rem, 100%);/*Utilizar el valor mas pequenio*/
+    margin: 0 auto; /*Hay que usarlo cuando es un formulario porque por defecto tiene un display block, pero no se usa cuando tenga de padre un display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    color: var(--primario);
+    width: 100%;
+}
+@media (min-width: 768px){
+    .contenedor-campos{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: auto auto 21rem;
+        column-gap: 1rem;
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4){
+        grid-column: 1/3;
+    }
+}
+
+.campo{
+    margin-bottom: 1rem;
+}
+.campo textarea{
+    height: 20rem;
+    resize: none;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.input-text{
+    border: none;
+    padding: 2rem;
+    border-radius:1rem ;
+    width: 100%;
+}
+.footer{
+    text-align: center;
+}
+/*Si no tienes un snippet css.json tendás que crearlo.
+Hacemos Ctrl + shift + p para sacar la command palette, escribimos User Snippets y la primera opción del desplegable es New Global Snippets file... la seleccionamos y nos pedirá introducir un texto escribimos css.json y ahí podremos escribir nuestros snippets.*/
+
