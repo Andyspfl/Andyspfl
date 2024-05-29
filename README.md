@@ -4,5 +4,5 @@
 - 🌱 I’m currently learning JS
 - 💞️ I’m looking to collaborate on OSS
 - 📫 How to reach me andymaytac@gmail.com
-- 😄 Pronouns: She/Her
+- 😄 Pronouns: He/Him
 - ⚡ Fun fact: Coding<>
